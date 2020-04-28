@@ -64,7 +64,7 @@ bindsym $mod+Shift+F2 exec pcmanfm_pkexec
 bindsym $mod+F4 exec libreoffice
 bindsym $mod+F5 exec terminal -e 'mutt'
 bindsym $mod+Shift+F5 exec terminal -e 'mocp'
-#bindsym $mod+F6 exec joplin
+bindsym $mod+F6 exec "/home/bharath/.cache/yay/joplin-appimg/Joplin-1.0.201.AppImage"
 bindsym $mod+F7 exec telegram-desktop
 bindsym $mod+F9 exec terminal -e 'vim .i3/config'
 bindsym $mod+t exec --no-startup-id pkill compton
@@ -195,7 +195,7 @@ assign [class="(?i)libreoffice-writer$"] $ws4
 assign [class="(?i)soffice"] $ws4
 assign [class="(?i)libreoffice-calc"] $ws4
 assign [class="(?i)libreoffice.*"] $ws4
-# assign [class="Joplin"] $ws6
+assign [class="(?i)Joplin"] $ws6
 assign [class="TelegramDesktop"] $ws7
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
