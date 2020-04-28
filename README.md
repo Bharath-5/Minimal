@@ -1,3 +1,3 @@
 # Minimal
 
-All of my dotfiles
+config = my Manjaro i3 config
