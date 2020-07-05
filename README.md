@@ -53,11 +53,11 @@
 ```
         sudo pacman -S rxvt-unicode xmonad xmonad-contrib xmobar
 
-        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs    #Make a backup of any preexisting configs 
+        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs	#Make a backup of any preexisting configs 
 
         cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config   
 
-        cp ./.xmonad/xmonad.hs ~/.xmonad/     #Copy the downloaded configs to appropriate directories
+        cp ./.xmonad/xmonad.hs ~/.xmonad/			#Copy the cloned configs to appropriate directories
 
         cp ./xmobar/xmobar.config ~/xmobar/
 ```
