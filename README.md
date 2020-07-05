@@ -19,6 +19,10 @@
 
 	cd Minimal
 
+- Delete the .acoundrc file
+
+	rm ./.asoundrc
+	
 - If you are using the i3/i3-gaps Window Manager and if you are on Manjaro i3 Community Edition.
 	* Replace the line "/home/bharath/Documents/HDD Backup/Wallpapers/Wallpapers" to the path of your Wallpapers directory
 	* Delete config files of xmonad, xmobar and .asoundrc
