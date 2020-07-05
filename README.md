@@ -57,7 +57,7 @@
 
         cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config   
 
-        cp ./.xmonad/xmonad.hs ~/.xmonad/			#Copy the cloned configs to appropriate directories
+        cp ./.xmonad/xmonad.hs ~/.xmonad/			#Copy the cloned configs
 
         cp ./xmobar/xmobar.config ~/xmobar/
 ```
