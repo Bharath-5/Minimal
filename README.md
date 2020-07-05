@@ -31,48 +31,20 @@
 
 2. If you are using the i3/i3-gaps Window Manager and if you are on Manjaro i3 Community Edition.
 	* Replace the line "/home/bharath/Documents/HDD Backup/Wallpapers/Wallpapers" to the path of your Wallpapers directory
-	* Delete config files of xmonad, xmobar and .asoundrc
+	* Skip the next step involving XMonad Window Manager [3]
 
 
 ```
-        rm .asoundrc
+        rm .asoundrc   #Delete the downloaded .asoundrc
 
-        rm -rf .xmonad xmobar
+        rm -rf .xmonad xmobar     #Delete the downloaded xmonad and xmobar config files
+
+        cp ~/.i3/config ~/.i3/config-backup    #Make a backup of any pre-existing i3 config file
+
+        cp ./.i3/config ~/.i3/    #Copy the downloaded config file
+
+        cp ./Conky/* /usr/share/conky   #Copy the conky config file [requires root]
 ```
-
-
-
-	* Make a backup of Manjaro i3 config 
-
-
-
-```
-        cp ~/.i3/config ~/.i3/config-backup
-```
-
-
-
-    * Copy the downloaded config file 
-
-
-
-```
-        cp ./.i3/config ~/.i3/
-```
-
-
-
-    * Copy the Conky config file to /usr/share/conky [requires root]
-
-
-
-```
-        cp ./Conky/* /usr/share/conky
-```
-
-
-
-    * Skip the next step involving XMonad Window Manager [3]
 
 
 3. If you are using XMonad Window Manager, also install the contrib package and xmobar to go along with it. My config file defaults to URxvt as the default terminal.
@@ -80,24 +52,12 @@
 
 ```
         sudo pacman -S rxvt-unicode xmonad xmonad-contrib xmobar
-```
 
+        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs    #Make a backup of any preexisting xmonad config file
 
-    * Make a backup of xmonad and xmobar configs [if any]
+        cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config     #Make a backup of any preexisting xmobar config file
 
-
-```
-        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs
-
-        cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config
-```
-
-
-    * Copy xmonad and xmobar config files to appropriate directories
-
-
-```
-        cp ./.xmonad/xmonad.hs ~/.xmonad/
+        cp ./.xmonad/xmonad.hs ~/.xmonad/     #Copy the downloaded config files to appropriate directories
 
         cp ./xmobar/xmobar.config ~/xmobar/
 ```
@@ -120,7 +80,6 @@
 ```
         cp ~/.Xresources ~/.Xresources-backup
 
-
         cp ~/.picom.conf ~/.picom-backup.conf
 ```
 
@@ -132,7 +91,7 @@
         mv ./picom.conf ~
 ```
 
-# Usage
+## Usage
 
 - Most of my frequently used programs are mapped to the [Super] + Function keys. The applications open up in their respective workspaces. The workspaces are categorized as follows:
 
