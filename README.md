@@ -39,7 +39,7 @@
 
         rm -rf .xmonad xmobar			#Delete the downloaded xmonad and xmobar config files
 
-        cp ~/.i3/config ~/.i3/config-backup	#Make a backup of any pre-existing i3 config file
+        cp ~/.i3/config ~/.i3/config-backup	#Make a backup of any existing i3 config file
 
         cp ./.i3/config ~/.i3/			#Copy the downloaded config file
 
@@ -53,7 +53,7 @@
 ```
         sudo pacman -S rxvt-unicode xmonad xmonad-contrib xmobar
 
-        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs	#Make a backup of any preexisting configs 
+        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs	#Make a backup of any existing configs 
 
         cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config   
 
