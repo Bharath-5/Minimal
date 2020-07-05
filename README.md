@@ -39,25 +39,33 @@
     rm -rf .xmonad xmobar
 ```
 
+
 	* Make a backup of Manjaro i3 config 
+
 
 ```
     cp ~/.i3/config ~/.i3/config-backup
 ```
 
+
 	* Copy the downloaded config file 
+
 
 ```
     cp ./.i3/config ~/.i3/
 ```
 
+
 	* Copy the Conky config file to /usr/share/conky [requires root]
+
 
 ```
     cp ./Conky/* /usr/share/conky
 ```
 
+
 	* Skip the next step involving XMonad Window Manager
+
 
 - If you are using XMonad Window Manager, also install the contrib package and xmobar to go along with it. My config file defaults to URxvt as the default terminal.
 
