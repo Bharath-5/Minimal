@@ -6,11 +6,11 @@
 - These files are to be modified according to your needs and use cases.
 - The .asoundrc file is to set the default audio card. Please do not use that file unless absolutely required.
 
-##Screenshot [XMonad]
+## Screenshot [XMonad]
 
-  ![alt text] (https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png?raw=true)
+  ![alt tag] (https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png?raw=true)
 
-##Installation
+## Installation
 - Clone this repository
 
 	git clone https://github.com/Bharath-5/Minimal
@@ -83,7 +83,7 @@
 
 	mv ./picom.conf ~
 
-#Usage
+# Usage
 
 - Most of my frequently used programs are mapped to the [Super] + Function keys. The applications open up in their respective workspaces. The workspaces are categorized as follows:
 	* Workspace 1 : Browser						[Super] + F1 opens Firefox/Qutebrowser 
