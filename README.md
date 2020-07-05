@@ -33,11 +33,11 @@
 	* Replace the line "/home/bharath/Documents/HDD Backup/Wallpapers/Wallpapers" to the path of your Wallpapers directory
 	* Delete config files of xmonad, xmobar and .asoundrc
 
-```
+``
     rm .asoundrc
 
     rm -rf .xmonad xmobar
-```
+``
 
 
         * Make a backup of Manjaro i3 config 
