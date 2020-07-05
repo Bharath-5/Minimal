@@ -14,19 +14,19 @@
 1. Clone this repository
 
 ```
-    git clone https://github.com/Bharath-5/Minimal
+        git clone https://github.com/Bharath-5/Minimal
 ```
 
 - Go to the directory
 
 ```
-    cd Minimal
+        cd Minimal
 ```
 
-- Delete the .acoundrc file
+- Delete the .asoundrc file
 
 ```
-    rm ./.asoundrc
+        rm ./.asoundrc
 ```	
 
 2. If you are using the i3/i3-gaps Window Manager and if you are on Manjaro i3 Community Edition.
@@ -35,9 +35,9 @@
 
 
 ```
-    rm .asoundrc
+        rm .asoundrc
 
-    rm -rf .xmonad xmobar
+        rm -rf .xmonad xmobar
 ```
 
 
@@ -47,7 +47,7 @@
 
 
 ```
-    cp ~/.i3/config ~/.i3/config-backup
+        cp ~/.i3/config ~/.i3/config-backup
 ```
 
 
@@ -57,7 +57,7 @@
 
 
 ```
-    cp ./.i3/config ~/.i3/
+        cp ./.i3/config ~/.i3/
 ```
 
 
@@ -67,7 +67,7 @@
 
 
 ```
-    cp ./Conky/* /usr/share/conky
+        cp ./Conky/* /usr/share/conky
 ```
 
 
@@ -79,7 +79,7 @@
 
 
 ```
-    sudo pacman -S rxvt-unicode xmonad xmonad-contrib xmobar
+        sudo pacman -S rxvt-unicode xmonad xmonad-contrib xmobar
 ```
 
 
@@ -87,9 +87,9 @@
 
 
 ```
-    cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs
+        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs
 
-    cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config
+        cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config
 ```
 
 
@@ -97,39 +97,39 @@
 
 
 ```
-    cp ./.xmonad/xmonad.hs ~/.xmonad/
+        cp ./.xmonad/xmonad.hs ~/.xmonad/
 
-    cp ./xmobar/xmobar.config ~/xmobar/
+        cp ./xmobar/xmobar.config ~/xmobar/
 ```
 
 
 4. Install Additional Software required:
 
 ```
-    sudo pacman -S dmenu firefox picom qutebrowser telegram-desktop ttf-font-awesome ttf-fira-code 
+        sudo pacman -S dmenu firefox picom qutebrowser telegram-desktop ttf-font-awesome ttf-fira-code 
 ```
 
-5. Install an AUR helper [preferably Yay] to install Joplin
+5. Install an AUR helper [preferably Yay] to install Joplin and a theme
 
 ```
-    yay -S joplin
+        yay -S joplin flat-remix
 ```
 
 6. Make a backup copy of your existing .Xresources and .picom.conf [if any] from your Home directory
 
 ```
-    cp ~/.Xresources ~/.Xresources-backup
+        cp ~/.Xresources ~/.Xresources-backup
 
 
-    cp ~/.picom.conf ~/.picom-backup.conf
+        cp ~/.picom.conf ~/.picom-backup.conf
 ```
 
 7. Place the files .Xresources and .picom.conf in Home directory
 
 ```
-    mv ./Xresources ~
+        mv ./Xresources ~
 
-    mv ./picom.conf ~
+        mv ./picom.conf ~
 ```
 
 # Usage
