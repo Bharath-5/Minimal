@@ -8,7 +8,7 @@
 
 ## Screenshot [XMonad]
 
-  ![alt tag] (https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png)
+  ![alt text] (https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png)
 
 ## Installation
 - Clone this repository
