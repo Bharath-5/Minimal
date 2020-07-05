@@ -35,15 +35,15 @@
 
 
 ```
-        rm .asoundrc   #Delete the downloaded .asoundrc
+        rm .asoundrc				#Delete the downloaded .asoundrc
 
-        rm -rf .xmonad xmobar     #Delete the downloaded xmonad and xmobar config files
+        rm -rf .xmonad xmobar			#Delete the downloaded xmonad and xmobar config files
 
-        cp ~/.i3/config ~/.i3/config-backup    #Make a backup of any pre-existing i3 config file
+        cp ~/.i3/config ~/.i3/config-backup	#Make a backup of any pre-existing i3 config file
 
-        cp ./.i3/config ~/.i3/    #Copy the downloaded config file
+        cp ./.i3/config ~/.i3/			#Copy the downloaded config file
 
-        cp ./Conky/* /usr/share/conky   #Copy the conky config file [requires root]
+        cp ./Conky/* /usr/share/conky		#Copy the conky config file [requires root]
 ```
 
 
