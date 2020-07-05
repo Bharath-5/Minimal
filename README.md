@@ -40,7 +40,7 @@
 ```
 
 
-	* Make a backup of Manjaro i3 config 
+        * Make a backup of Manjaro i3 config 
 
 
 ```
@@ -48,7 +48,7 @@
 ```
 
 
-	* Copy the downloaded config file 
+        * Copy the downloaded config file 
 
 
 ```
@@ -56,7 +56,7 @@
 ```
 
 
-	* Copy the Conky config file to /usr/share/conky [requires root]
+        * Copy the Conky config file to /usr/share/conky [requires root]
 
 
 ```
@@ -64,7 +64,7 @@
 ```
 
 
-	* Skip the next step involving XMonad Window Manager
+        * Skip the next step involving XMonad Window Manager
 
 
 - If you are using XMonad Window Manager, also install the contrib package and xmobar to go along with it. My config file defaults to URxvt as the default terminal.
