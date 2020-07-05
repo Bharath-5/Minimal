@@ -97,14 +97,14 @@
 
 | Workspace number | Description | Keymappings |
 |:----------------:|:-----------:|:-----------:|
-| Workspace 1 | Browser | [Super] + F1 opens Firefox/Qutebrowser | 
-| Workspace 2 | File Manager | [Super] + F2 opens PcManFm |
-| Workspace 3 | Terminal / Terminal based applications | [Super] + [Enter] opens URxvt |
-| Workspace 4 | Office Programs	| [Super] + F4 opens LibreOffice |
-| Workspace 5 | General	| [Super] + d (in i3) and [Super] + p (in XMonad) opens dmenu |	
-| Workspace 6 | Notes | [Super] + F6 opens Joplin |
-| Workspace 7 | Social | [Super] + F7 opens Telegram |
-| Workspace 8 | Other | [Super] + F9 opens vim to edit i3 config [In i3] |
+| 1 | Browser | [Super] + F1 opens Firefox/Qutebrowser | 
+| 2 | File Manager | [Super] + F2 opens PcManFm |
+| 3 | Terminal / Terminal based applications | [Super] + [Enter] opens URxvt |
+| 4 | Office Programs	| [Super] + F4 opens LibreOffice |
+| 5 | General	| [Super] + d (in i3) and [Super] + p (in XMonad) opens dmenu |	
+| 6 | Notes | [Super] + F6 opens Joplin |
+| 7 | Social | [Super] + F7 opens Telegram |
+| 8 | Other | [Super] + F9 opens vim to edit i3 config [In i3] |
 
 - The "[Super] + H" key combination in i3 Window Manager has been remapped to "[Super] + ;" to get vim-like keybindings for movement [Super] + h/j/k/l
 - Most other keybindings are as close to their defaults
