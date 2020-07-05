@@ -13,7 +13,7 @@
 ## Installation
 - Clone this repository
 
-	'git clone https://github.com/Bharath-5/Minimal'
+	`git clone https://github.com/Bharath-5/Minimal`
 
 - Go to the directory
 
