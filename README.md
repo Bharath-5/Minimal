@@ -24,7 +24,7 @@
 ```
 
 
-	Make backups of any existing configs and copy the cloned configs 
+* Make backups of any existing configs and copy the cloned configs 
 
 
 ```
