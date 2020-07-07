@@ -47,7 +47,7 @@
 3. Install Additional Software required:
 
 ```
-        sudo pacman -S dmenu picom qutebrowser telegram-desktop ttf-font-awesome ttf-fira-code volumeicon
+        sudo pacman -S dmenu picom qutebrowser telegram-desktop ttf-font-awesome ttf-fira-code 
 ```
 
 4. Install an AUR helper [preferably Yay] to install Joplin and a theme
