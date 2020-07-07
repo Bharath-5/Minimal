@@ -10,50 +10,46 @@
 ![alt text](https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png?raw=true)
 
 ## Installation
-1. Clone this repository
+1. Clone this repository, go to the cloned directory and delete the .asoundrc file
 
 ```
-        git clone https://github.com/Bharath-5/Minimal
+        git clone https://github.com/Bharath-5/Minimal; cd Minimal; rm ./.asoundrc
 ```
-
-- Go to the directory
-
-```
-        cd Minimal
-```
-
-- Delete the .asoundrc file
-
-```
-        rm ./.asoundrc
-```	
 
 2. Install the contrib package and xmobar to go along with XMonad. My config file defaults to URxvt as the default terminal.
 
 
 ```
-        sudo pacman -S rxvt-unicode xmonad xmonad-contrib xmobar
+        sudo pacman -S dmenu rxvt-unicode xmonad xmonad-contrib xmobar 
+```
 
-        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs	#Make a backup of any existing configs 
+
+	Make backups of any existing configs and copy the cloned configs 
+
+
+```
+        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs
 
         cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config   
 
-        cp ./.xmonad/xmonad.hs ~/.xmonad/			#Copy the cloned configs
+        cp ./.xmonad/xmonad.hs ~/.xmonad/
 
         cp ./xmobar/xmobar.config ~/xmobar/
 ```
 
 
-3. Install Additional Software required:
+3. Install Additional Software
 
 ```
-        sudo pacman -S dmenu picom qutebrowser telegram-desktop ttf-font-awesome ttf-fira-code 
+        sudo pacman -S pcmanfm picom qutebrowser telegram-desktop ttf-font-awesome ttf-fira-code
+
+        sudo pacman -S alsa-utils celluloid gparted neofetch pulseaudio ranger w3m wget youtube-dl
 ```
 
 4. Install an AUR helper [preferably Yay] to install Joplin and a theme
 
 ```
-        yay -S joplin flat-remix 
+        yay -S joplin flat-remix paper-icon-theme-git illum-git
 ```
 
 5. Make a backup copy of your existing .Xresources and .picom.conf [if any] from your Home directory
