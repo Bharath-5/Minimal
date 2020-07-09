@@ -77,6 +77,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- launch telegram
     , ((modm,               xK_F7     ), spawn "telegram-desktop")
 
+    -- Take a screenshot
+    , ((0,                  xK_Print  ), spawn "scrot 'Screenshot_%d-%m-%Y_$wx$h' -e 'mv $f /home/bharath/Pictures/'")
+
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
@@ -267,6 +270,8 @@ myStartupHook = do
         spawnOnce "nitrogen --random --set-zoom-fill /home/bharath/Pictures/Wallpapers &"
         spawnOnce "picom -b --config ~/.picom.conf &"
         spawnOnce "xrdb ~/.Xresources"
+
+
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
