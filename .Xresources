@@ -1,18 +1,19 @@
 Xft.dpi:       96
-Xft.antialias: true
+Xft.antialias: true 
 Xft.hinting:   true
 Xft.rgba:      rgb
 Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-XTerm*background:        #222D31
-XTerm*foreground:        #d8d8d8
+XTerm*background:        #000000
+XTerm*foreground:        #c5c8c6
 XTerm*pointerColor:      #1ABB9B
 XTerm*faceName:          Fixed
 XTerm*faceSize:          11
-XTerm*reverseVideo:      on
+XTerm*reverseVideo:      off
 XTerm*selectToClipboard: true
+
 
 *background:                      #000000
 *foreground:                      #c5c8c6
