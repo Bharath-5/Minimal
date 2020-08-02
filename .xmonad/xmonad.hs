@@ -82,9 +82,9 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0,                  xK_Print  ), spawn "scrot 'Screenshot_%d-%m-%Y_$wx$h' -e 'mv $f /home/bharath/Pictures/'")
 
     -- Brightness Control. Install brightnessctl to use it
-    , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl s 5%+")
+    , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl s 2%+")
 
-    , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl s 5%-") 
+    , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl s 2%-") 
 
     -- Volume Keys
     , ((0, xF86XK_AudioMute), spawn "amixer -q set PCM toggle")
