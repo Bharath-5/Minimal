@@ -1,4 +1,4 @@
---This is my XMonad config file. Works with Arch Linux install with few additional packages. The packages required will be updated later
+--This is my XMonad config file. Works with Arch Linux installed with few additional packages. The packages required will be updated later
 
 import XMonad
 import Data.Monoid
@@ -7,6 +7,7 @@ import XMonad.Util.SpawnOnce
 import XMonad.Util.Run
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.Spacing
+import Graphics.X11.ExtraTypes.XF86
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -80,6 +81,18 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     -- Take a screenshot
     , ((0,                  xK_Print  ), spawn "scrot 'Screenshot_%d-%m-%Y_$wx$h' -e 'mv $f /home/bharath/Pictures/'")
 
+    -- Brightness Control. Install brightnessctl to use it
+    , ((0, xF86XK_MonBrightnessUp), spawn "brightnessctl s 5%+")
+
+    , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl s 5%-") 
+
+    -- Volume Keys
+    , ((0, xF86XK_AudioMute), spawn "amixer -q set PCM toggle")
+
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set PCM 2+")
+
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set PCM 2-")
+  
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")
 
@@ -199,16 +212,15 @@ myMouseBindings (XConfig {XMonad.modMask = modm}) = M.fromList $
 myLayout = avoidStruts (tiled ||| Mirror tiled ||| Full)
   where
      -- default tiling algorithm partitions the screen into two panes
-     tiled   = smartSpacing 5 $ Tall nmaster delta ratio
-
-     -- The default number of windows in the master pane
-     nmaster = 1
+      tiled   =  Tall nmaster delta ratio
+    -- The default number of windows in the master pane
+      nmaster = 1
 
      -- Default proportion of screen occupied by master pane
-     ratio   = 1/2
+      ratio   = 1/2
 
      -- Percent of screen to increment by when resizing panes
-     delta   = 3/100
+      delta   = 3/100
 
 ------------------------------------------------------------------------
 -- Window rules:
@@ -268,7 +280,7 @@ myLogHook = return ()
 -- By default, do nothing.
 myStartupHook = do
         spawnOnce "nitrogen --random --set-zoom-fill /home/bharath/Pictures/Wallpapers &"
-        spawnOnce "picom -b --config ~/.picom.conf &"
+        --spawnOnce "picom -b --config ~/.picom.conf &"
         spawnOnce "xrdb ~/.Xresources"
 
 

@@ -43,13 +43,13 @@
 ```
         sudo pacman -S pcmanfm picom qutebrowser scrot telegram-desktop ttf-font-awesome ttf-fira-code
 
-        sudo pacman -S alsa-utils celluloid gparted neofetch pulseaudio ranger w3m wget youtube-dl
+        sudo pacman -S alsa-utils brightnessctl celluloid gparted neofetch pulseaudio ranger w3m wget youtube-dl
 ```
 
 4. Install an AUR helper [preferably Yay] to install Joplin and a theme
 
 ```
-        yay -S joplin flat-remix paper-icon-theme-git illum-git
+        yay -S joplin flat-remix paper-icon-theme-git
 ```
 
 5. Make a backup copy of your existing .Xresources and .picom.conf [if any] from your Home directory
@@ -81,7 +81,7 @@
 | 5 | General	| [Super] + p opens dmenu |	
 | 6 | Notes | [Super] + F6 opens Joplin |
 | 7 | Social | [Super] + F7 opens Telegram |
-| 8 | Other |  |
+| 8 | Other | |
 | 9 | Misc | |
 
 - Most other keybindings are as close to their defaults
