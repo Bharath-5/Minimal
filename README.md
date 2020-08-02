@@ -4,7 +4,7 @@
 - The commands given below assumes that you are using Arch Linux or a distro based on Arch.
 - These files are to be modified according to your needs and use cases.
 - The .asoundrc file is to set the default audio card. Please do not use that file unless absolutely required.
-
+- Autostart of picom has been removed in the recent config to reduce memory usage. The picom config file can be deleted along with .asoundrc if required 
 ## Screenshot 
 
 ![alt text](https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png?raw=true)
