@@ -4,10 +4,15 @@
 - The commands given below assumes that you are using Arch Linux or a distro based on Arch.
 - These files are to be modified according to your needs and use cases.
 - The .asoundrc file is to set the default audio card. Please do not use that file unless absolutely required.
-- Autostart of picom has been removed in the recent config to reduce memory usage. The picom config file can be deleted along with .asoundrc if required 
+- Autostart of picom has been removed in the recent config to reduce memory usage. The picom config file can be deleted along with .asoundrc if required
+ 
 ## Screenshot 
 
+1. XMonad
 ![alt text](https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png?raw=true)
+
+2. Qtile
+![alt text](https://github.com/Bharath-5/Minimal/blob/master/QtileScreenshot.png?raw=true)
 
 ## Installation
 1. Clone this repository, go to the cloned directory and delete the .asoundrc file
@@ -23,6 +28,8 @@
         sudo pacman -S dmenu rxvt-unicode xmonad xmonad-contrib xmobar 
 ```
 
+- For Qtile, replace "xmonad xmonad-contrib xmobar" with "qtile"
+
 
 * Make backups of any existing configs and copy the cloned configs 
 
@@ -37,13 +44,18 @@
         cp ./xmobar/xmobar.config ~/xmobar/
 ```
 
+- For Qtile, replace the above commands with the following commands
+
+```
+	cp ./qtile/* ~/.config/qtile/
+```
 
 3. Install Additional Software
 
 ```
         sudo pacman -S pcmanfm picom qutebrowser scrot telegram-desktop ttf-font-awesome ttf-fira-code
 
-        sudo pacman -S alsa-utils brightnessctl celluloid gparted neofetch pulseaudio ranger w3m wget youtube-dl
+        sudo pacman -S alsa-utils brightnessctl celluloid lxappearance gparted neofetch pulseaudio ranger w3m wget youtube-dl
 ```
 
 4. Install an AUR helper [preferably Yay] to install Joplin and a theme
@@ -63,14 +75,14 @@
 6. Place the files .Xresources and .picom.conf in Home directory
 
 ```
-        mv ./Xresources ~
+        mv ./.Xresources ~
 
-        mv ./picom.conf ~
+        mv ./.picom.conf ~
 ```
 
 ## Usage
 
-- Most of my frequently used programs are mapped to the [Super] + Function keys. The applications open up in their respective workspaces. The workspaces are categorized as follows:
+- Most of my frequently used programs are mapped to the [Super] + Function keys. The applications open up in their respective workspaces [in XMonad]. The workspaces are categorized as follows:
 
 | Workspace number | Description | Keymappings |
 |:----------------:|:-----------:|:-----------:|
@@ -79,7 +91,7 @@
 | 3 | Terminal / Terminal based applications | [Super] + [Shift] + [Enter] opens URxvt |
 | 4 | Office Programs	| [Super] + F4 opens LibreOffice |
 | 5 | General	| [Super] + p opens dmenu |	
-| 6 | Notes | [Super] + F6 opens Joplin |
+| 6 | Notes / Email | [Super] + F6 opens Thunderbird |
 | 7 | Social | [Super] + F7 opens Telegram |
 | 8 | Other | |
 | 9 | Misc | |
