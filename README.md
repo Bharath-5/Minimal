@@ -48,6 +48,8 @@
 
 ```
 	cp ./qtile/* ~/.config/qtile/
+
+	chmod 755 ~/.config/qtile/autostart.sh
 ```
 
 3. Install Additional Software
