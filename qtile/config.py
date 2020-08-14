@@ -43,12 +43,14 @@ keys = [
     # Switch between windows in current stack pane
     Key([mod], "k", lazy.layout.down(),
         desc="Move focus down in stack pane"),
+    
     Key([mod], "j", lazy.layout.up(),
         desc="Move focus up in stack pane"),
 
     # Move windows up or down in current stack
     Key([mod, "control"], "k", lazy.layout.shuffle_down(),
         desc="Move window down in current stack "),
+    
     Key([mod, "control"], "j", lazy.layout.shuffle_up(),
         desc="Move window up in current stack "),
 
@@ -66,6 +68,7 @@ keys = [
     # multiple stack panes
     Key([mod, "shift"], "Return", lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack"),
+    
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
    # Key([mod], "p", lazy.spawn("dmenu_run"), desc="Launch dmenu"),
@@ -81,8 +84,11 @@ keys = [
 
     #Audio Keybindings
     Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    
     Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 1 sset Master 1- unmute")),
+    
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 1 sset Master 1+ unmute")),
+
     #Some Custom Keybindings
     Key([mod], "F1", lazy.spawn("qutebrowser"), desc="Launch Browser"),
 
@@ -166,12 +172,15 @@ screens = [
                 widget.Sep(),
                 widget.Memory(),
                 widget.Sep(),
-                widget.Battery(),
+                widget.Battery(
+                    format='{char} {percent:2.0%} {hour:d}:{min:02d}'
+                    ),
                 widget.Sep(),
-                widget.Clock(format='%d/%m/%Y %a %I:%M %p'),
+                widget.Clock(format='%d/%m/%y %a %I:%M'),
+                widget.Sep(),
                 widget.Volume()
             ],
-            24,
+            20,
         ),
     ),
 ]
