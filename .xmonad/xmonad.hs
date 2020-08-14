@@ -87,11 +87,11 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
     , ((0, xF86XK_MonBrightnessDown), spawn "brightnessctl s 2%-") 
 
     -- Volume Keys
-    , ((0, xF86XK_AudioMute), spawn "amixer -q set PCM toggle")
+    , ((0, xF86XK_AudioMute), spawn "amixer -q set Master toggle")
 
-    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -q set PCM 2+")
+    , ((0, xF86XK_AudioRaiseVolume), spawn "amixer -c 1 sset Master 1+ unmute")
 
-    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -q set PCM 2-")
+    , ((0, xF86XK_AudioLowerVolume), spawn "amixer -c 1 sset Master 1+ unmute")
   
     -- launch gmrun
     , ((modm .|. shiftMask, xK_p     ), spawn "gmrun")

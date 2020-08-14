@@ -55,7 +55,7 @@
 3. Install Additional Software
 
 ```
-        sudo pacman -S pcmanfm picom qutebrowser scrot telegram-desktop ttf-font-awesome ttf-fira-code
+        sudo pacman -S pcmanfm picom python-psutil qutebrowser scrot telegram-desktop ttf-font-awesome ttf-fira-code
 
         sudo pacman -S alsa-utils brightnessctl celluloid lxappearance gparted neofetch pulseaudio ranger w3m wget youtube-dl
 ```
