@@ -34,7 +34,8 @@ from libqtile.utils import guess_terminal
 import os
 import subprocess
 from libqtile import hook
-
+#for DmenuRun
+from libqtile import extension
 mod = "mod4"
 terminal = "urxvt" 
 
@@ -67,8 +68,22 @@ keys = [
         desc="Toggle between split and unsplit sides of stack"),
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
 
-    Key([mod], "p", lazy.spawn("dmenu"), desc="Launch dmenu"),
+   # Key([mod], "p", lazy.spawn("dmenu_run"), desc="Launch dmenu"),
+    Key([mod], 'p', lazy.run_extension(extension.DmenuRun(
+        dmenu_prompt=">",
+        dmenu_font="sans",
+        dmenu_fontsize=10,
+        background="#000000",
+        foreground="#fff",
+        selected_background="#000000",
+        selected_foreground="#215578",
+    ))),
 
+    #Audio Keybindings
+    Key([], "XF86AudioMute", lazy.spawn("amixer -q set Master toggle")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("amixer -c 1 sset Master 1- unmute")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 1 sset Master 1+ unmute")),
+    #Some Custom Keybindings
     Key([mod], "F1", lazy.spawn("qutebrowser"), desc="Launch Browser"),
 
     Key([mod], "F2", lazy.spawn("pcmanfm"), desc="Launch PcManFm"),
@@ -147,7 +162,14 @@ screens = [
                # widget.TextBox("default config", name="default"),
                # widget.TextBox("Press &lt;M-r&gt; to spawn", foreground="#d75f5f"),
                 widget.Systray(),
-                widget.Clock(format='%Y-%m-%d %a %I:%M %p'),
+                widget.Net(),
+                widget.Sep(),
+                widget.Memory(),
+                widget.Sep(),
+                widget.Battery(),
+                widget.Sep(),
+                widget.Clock(format='%d/%m/%Y %a %I:%M %p'),
+                widget.Volume()
             ],
             24,
         ),
