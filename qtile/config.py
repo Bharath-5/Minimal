@@ -89,10 +89,18 @@ keys = [
     
     Key([], "XF86AudioRaiseVolume", lazy.spawn("amixer -c 1 sset Master 1+ unmute")),
 
+    #Brightness Keybindings
+    Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s 1+")),
+
+    Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 1-")),
+
     #Some Custom Keybindings
     Key([mod], "F1", lazy.spawn("qutebrowser"), desc="Launch Browser"),
 
     Key([mod], "F2", lazy.spawn("pcmanfm"), desc="Launch PcManFm"),
+
+    Key([mod], "F3", lazy.spawn("urxvt -e lynx -vikeys lite.duckduckgo.com"), desc="Launch Lynx Browser"),
+
 
     Key([mod], "F4", lazy.spawn("libreoffice"), desc="Launch LibreOffice"),
 

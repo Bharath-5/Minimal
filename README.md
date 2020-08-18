@@ -95,7 +95,7 @@
 | 5 | General	| [Super] + p opens dmenu |	
 | 6 | Notes / Email | [Super] + F6 opens Thunderbird |
 | 7 | Social | [Super] + F7 opens Telegram |
-| 8 | Other | |
+| 8 | Other |[Super] + F3 opens lynx browser in Qtile |
 | 9 | Misc | |
 
 - Most other keybindings are as close to their defaults
