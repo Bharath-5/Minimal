@@ -94,6 +94,8 @@ keys = [
 
     Key([], "XF86MonBrightnessDown", lazy.spawn("brightnessctl s 1-")),
 
+    #Screenshot
+    Key([], "Print", lazy.spawn("scrot 'Screenshot-%d-%m-%Y-%s_$wx$h.jpg' -e 'mv $f /home/bharath/Pictures/'")),
     #Some Custom Keybindings
     Key([mod], "F1", lazy.spawn("qutebrowser"), desc="Launch Browser"),
 

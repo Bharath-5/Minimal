@@ -1,85 +1,25 @@
 # Minimal
 
-- This repo contains the config files of various programs that I use.
+- This repo contains the config files of some programs that I use. The script places those files in appropriate locations and installs the necessary software to make it work, and also a few extra programs that I often use.
 - The commands given below assumes that you are using Arch Linux or a distro based on Arch.
-- These files are to be modified according to your needs and use cases.
-- The .asoundrc file is to set the default audio card. Please do not use that file unless absolutely required.
-- Autostart of picom has been removed in the recent config to reduce memory usage. The picom config file can be deleted along with .asoundrc if required
- 
+- The .asoundrc file is to set the default audio card. 
+- The path to "Pictures" folder in the qtile config under custom keybindings needs to be modified according to use case.
 ## Screenshot 
 
-1. XMonad
-![alt text](https://github.com/Bharath-5/Minimal/blob/master/XMonadScreenshot.png?raw=true)
-
-2. Qtile
-![alt text](https://github.com/Bharath-5/Minimal/blob/master/QtileScreenshot.png?raw=true)
+![alt text](https://github.com/Bharath-5/Minimal/blob/master/Screenshot.jpg?raw=true)
 
 ## Installation
 1. Clone this repository, go to the cloned directory and delete the .asoundrc file
 
 ```
-        git clone https://github.com/Bharath-5/Minimal; cd Minimal; rm ./.asoundrc
+        git clone https://github.com/Bharath-5/Minimal; cd Minimal;
 ```
 
-2. Install the contrib package and xmobar to go along with XMonad. My config file defaults to URxvt as the default terminal.
-
-
-```
-        sudo pacman -S dmenu rxvt-unicode xmonad xmonad-contrib xmobar 
-```
-
-- For Qtile, replace "xmonad xmonad-contrib xmobar" with "qtile"
-
-
-* Make backups of any existing configs and copy the cloned configs 
+2. Change the file permissions of the script and run the script 
 
 
 ```
-        cp ~/.xmonad/xmonad.hs ~/.xmonad/xmonad-backup.hs
-
-        cp ~/xmobar/xmobar.config ~/xmobar/xmobar-backup.config   
-
-        cp ./.xmonad/xmonad.hs ~/.xmonad/
-
-        cp ./xmobar/xmobar.config ~/xmobar/
-```
-
-- For Qtile, replace the above commands with the following commands
-
-```
-	cp ./qtile/* ~/.config/qtile/
-
-	chmod 755 ~/.config/qtile/autostart.sh
-```
-
-3. Install Additional Software
-
-```
-        sudo pacman -S pcmanfm picom python-psutil qutebrowser scrot telegram-desktop ttf-font-awesome ttf-fira-code
-
-        sudo pacman -S alsa-utils brightnessctl celluloid lxappearance gparted neofetch pulseaudio ranger w3m wget youtube-dl
-```
-
-4. Install an AUR helper [preferably Yay] to install Joplin and a theme
-
-```
-        yay -S joplin flat-remix paper-icon-theme-git
-```
-
-5. Make a backup copy of your existing .Xresources and .picom.conf [if any] from your Home directory
-
-```
-        cp ~/.Xresources ~/.Xresources-backup
-
-        cp ~/.picom.conf ~/.picom-backup.conf
-```
-
-6. Place the files .Xresources and .picom.conf in Home directory
-
-```
-        mv ./.Xresources ~
-
-        mv ./.picom.conf ~
+      chmod 755 ./Minimal.sh; ./Minimal.sh 
 ```
 
 ## Usage
@@ -95,8 +35,7 @@
 | 5 | General	| [Super] + p opens dmenu |	
 | 6 | Notes / Email | [Super] + F6 opens Thunderbird |
 | 7 | Social | [Super] + F7 opens Telegram |
-| 8 | Other |[Super] + F3 opens lynx browser in Qtile |
-| 9 | Misc | |
+| 8 | Other |[Super] + F3 opens lynx browser |
 
 - Most other keybindings are as close to their defaults
 
