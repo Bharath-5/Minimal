@@ -1,5 +1,5 @@
 #!/bin/bash
-echo "Welcome!1 This script installs the necessary packages and copies the configuration files to the appropriate directories. To quit this program, press [Ctrl] + C anytime"
+echo "Welcome! This script installs the necessary packages and copies the configuration files to the appropriate directories. To quit this program, press [Ctrl] + C anytime"
 
 echo "Should .asoundrc be deleted? (y or n)"
 read a
@@ -12,11 +12,16 @@ else
    echo ".asoundrc is copied to your home directory"
 fi
 
-echo "Installing packages"
-sudo pacman -S alsa-utils brightnessctl celluloid dmenu lxappearance gparted neofetch pulseaudio pcmanfm python-psutil qutebrowser ranger scrot ttf-font-awesome ttf-fira-code qtile scrot rxvt-unicode vimiv w3m wget youtube-dl
+echo "Enter username"
+read n
 
-echo "Press 1 for DWM and 2 for QTile"
+echo "Press 1 for DWM, 2 for QTile, 3 for EXWM and 4 for Gnome"
 read option
+if [[$option -lt 4]]
+then
+  echo "Additional packages will be installed"
+  sudo pacman -S alsa-utils brightnessctl celluloid dmenu lxappearance gparted neofetch pulseaudio pcmanfm python-psutil qutebrowser ranger scrot ttf-font-awesome ttf-fira-code scrot rxvt-unicode vimiv w3m wget youtube-dl
+fi
 if [[$option -eq 1]]
 then
 
@@ -44,16 +49,47 @@ then
     mkdir /home/$n/.config/qtile/
     cp -r ./qtile/* /home/$n/.config/qtile/
  fi
+
+elif [[$option -eq 3]]
+then
+    sudo pacman -S emacs gcc
+    mkdir /home/$n/.emacs.d/
+    cp ./Emacs/init.el /home/$n/.emacs.d/
+    echo "Does an xsession file need to be created?"
+    read xse
+    if [[$xse -eq 'y']]
+    then
+      sed -i 's/bharath/$n/' ./Emacs/exwm.desktop
+      mv ./Emacs/exwm.desktop /home/$n/.emacs.d/
+      mv ./Emacs/start-exwm.sh /home/$n/.emacs.d/
+      chmod +x /home/$n/.emacs.d/start-exwm.sh
+      sudo ln -f /home/$n/.emacs.d/exwm.desktop /usr/share/xsessions/exwm.desktop
+    fi
+
+elif [[$option -eq 4]]
+then
+    echo "Should gnome be installed?"
+    read ginstall
+    if [[$ginstall -eq "y"]]
+    then
+      sudo pacman -S gnome
+      echo "The gdm service will now be enabled and started"
+      sudo systemctl enable gdm.service
+      sudo systemctl start gdm.service
+    fi
+    sudo pacman -S dconf-editor gnome-tweaks gnome-shell-extensions
+    echo "The keybinding file will now be loaded"
+    dconf load '/org/gnome/desktop/wm/keybindings/' < './Gnome/wm-keybindings.dconf.bak'
 fi
 
 echo "Copying .Xresources file"
-FILE=/home/$n/.Xresources
-if [ -f "$FILE" ]; then
-    mv /home/$n/.Xresources /home/$n/.Xresources-backup
-    cp ./.Xresources /home/$n/
-else   
-    cp ./.Xresources /home/$n/
-fi
+  FILE=/home/$n/.Xresources
+  if [ -f "$FILE" ]; then
+      mv /home/$n/.Xresources /home/$n/.Xresources-backup
+      cp ./.Xresources /home/$n/
+  else   
+      cp ./.Xresources /home/$n/
+  fi
 
 echo "Do you want to install paru? (y or n)"
 read a
@@ -73,3 +109,7 @@ then
    paru -S flat-remix-gtk paper-icon-theme-git
 fi
 echo "Everything is set to go"
+if [[$option -eq 3]]
+then
+echo "Once you open Emacs, please run M-x all-the-icons-install-fonts during the first run"
+fi

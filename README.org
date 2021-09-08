@@ -1,7 +1,7 @@
 #+TITLE: Minimal
 * Introduction
-** This script installs some software that I often use and copies my config files to appropriate directories in Arch Linux
-** The .asoundrc file is to set the default audio card. 
+ This script installs some software that I often use and copies my config files to appropriate directories in Arch Linux
+ The .asoundrc file is to set the default audio card. 
 * Screenshots
   
 #+Caption: DWM 
@@ -12,13 +12,13 @@
 [[https://github.com/Bharath-5/Minimal/blob/master/Screenshot_qtile.jpg?raw=true]]
 
 * Installation
-** Clone this repository, go to the cloned directory
+ Clone this repository, go to the cloned directory
 
 #+begin_src bash
         git clone https://github.com/Bharath-5/Minimal; cd Minimal;
 #+end_src
 
-** Change the file permissions of the script, run the script and follow along its directions 
+ Change the file permissions of the script, run the script and follow along its directions 
 
 
 #+begin_src bash
@@ -27,8 +27,8 @@
 
 * Usage
 
-** Default modifier key is [Super]. [S] below represents [Super] key
-** Most of the programs are mapped to [Super] + Function keys. The applications open up in their own workspaces as follows:
+ Default modifier key is [Super]. [S] below represents [Super] key
+ Most of the programs are mapped to [Super] + Function keys. The applications open up in their own workspaces as follows:
 
 | Workspace Number | Description           | Keybindings                                                    |
 |------------------+-----------------------+----------------------------------------------------------------|
@@ -41,17 +41,17 @@
 |                7 | Social                | [S] + F7 = Telegram-desktop [QTile]                            |
 |                8 | Other/Dw              | [S] + F3 = Lynx browser [QTile]; Transmission opens here [DWM] |
 
-** Most other keybindings are as close to their defaults. Emacs uses evil keybindings
+ Most other keybindings are as close to their defaults. Emacs uses evil keybindings
 
 
 * Code
 #+PROPERTY: header-args : tangle ./Minimal.sh
 #+begin_src bash :tangle Minimal.sh
   #!/bin/bash
-  echo "Welcome!1 This script installs the necessary packages and copies the configuration files to the appropriate directories. To quit this program, press [Ctrl] + C anytime"
+  echo "Welcome! This script installs the necessary packages and copies the configuration files to the appropriate directories. To quit this program, press [Ctrl] + C anytime"
 #+end_src
-** Initially, the script asks if .ascoundrc should be deleted. This is to change the default audio device. If it shouldn't be changed, click 'y' to delete the file
-** If it isn't deleted, it will be copied to the home directory
+ Initially, the script asks if .ascoundrc should be deleted. This is to change the default audio device. If it shouldn't be changed, click 'y' to delete the file
+ If it isn't deleted, it will be copied to the home directory
 
 #+begin_src bash :tangle Minimal.sh
   echo "Should .asoundrc be deleted? (y or n)"
@@ -65,74 +65,112 @@
      echo ".asoundrc is copied to your home directory"
   fi
 #+end_src
-** Assuming your system is Arch/Arch-based distro, some additional packages will be installed
-
+ The username is asked for the rest of the steps to copy the configuration files, provided full path
 #+begin_src bash :tangle Minimal.sh
-  echo "Installing packages"
-  sudo pacman -S alsa-utils brightnessctl celluloid dmenu lxappearance gparted neofetch pulseaudio pcmanfm python-psutil qutebrowser ranger scrot ttf-font-awesome ttf-fira-code qtile scrot rxvt-unicode vimiv w3m wget youtube-dl
-#+end_src
-** The username is asked for the rest of the steps to copy the configuration files, provided full path
-#+begin_src bash :tangle yes
-
   echo "Enter username"
   read n
 #+end_src
-** The following gives an option between DWM and QTile. 
-*** If DWM is selected
-**** DWM will be cloned and installed to /usr/src/dwm
-**** The default "config.def.h" will remain untouched
-**** A simple script to display some system info in DWM tray will be copied into Documents/Scripts folder. This can later made to run on start of XSession from .xinitrc
-*** If QTile is selected
-**** QTile will be installed by pacman
-**** Its config files wil be copied, creating directories accordingly
-** Enter 1 for DWM and 2 for QTile to continue from here
+ The following gives an option between DWM, QTile, EXWM and Gnome 
+- If DWM is selected
+ - DWM will be cloned and installed to /usr/src/dwm
+ - The default "config.def.h" will remain untouched
+ - A simple script to display some system info in DWM tray will be copied into Documents/Scripts folder. This can later made to run on start of XSession from .xinitrc
 
 #+begin_src bash :tangle Minimal.sh
-  echo "Press 1 for DWM and 2 for QTile"
-  read option
-  if [[$option -eq 1]]
-  then
+    echo "Press 1 for DWM, 2 for QTile, 3 for EXWM and 4 for Gnome"
+    read option
+    if [[$option -lt 4]]
+    then
+      echo "Additional packages will be installed"
+      sudo pacman -S alsa-utils brightnessctl celluloid dmenu lxappearance gparted neofetch pulseaudio pcmanfm python-psutil qutebrowser ranger scrot ttf-font-awesome ttf-fira-code scrot rxvt-unicode vimiv w3m wget youtube-dl
+    fi
+    if [[$option -eq 1]]
+    then
 
-    sudo git clone git://git.suckless.org/dwm /usr/src
-    s=$(pwd)
-    sudo cp ./dwm/config.h /usr/src/dwm/
-    cd /usr/src/dwm
-    sudo make clean install
-    cd $s
-    mkdir /home/$n/Documents
-    mkdir /home/$n/Documents/Sripts/
-    cp ./dwm/statusbar.sh /home/$n/Documents/Scripts/
-    chmod +x /home/$n/Documents/Scripts/statusbar.sh
-   
-  elif [[$option -eq 2]]
-  then
-   sudo pacman -S qtile python-psutil
-   echo "Copying Qtile config files"
-   FILE=/home/$n/.config/qtile/
-   if [ -f "$FILE" ]; then
-      mkdir /home/$n/.config/qtile/backup/
-      mv -r /home/$n/.config/qtile/* /home/$n/.config/qtile/backup/
-      cp -r ./qtile/* /home/$n/.config/qtile/
-   else  
-      mkdir /home/$n/.config/qtile/
-      cp -r ./qtile/* /home/$n/.config/qtile/
-   fi
-  fi
+      sudo git clone git://git.suckless.org/dwm /usr/src
+      s=$(pwd)
+      sudo cp ./dwm/config.h /usr/src/dwm/
+      cd /usr/src/dwm
+      sudo make clean install
+      cd $s
+      mkdir /home/$n/Documents
+      mkdir /home/$n/Documents/Sripts/
+      cp ./dwm/statusbar.sh /home/$n/Documents/Scripts/
+      chmod +x /home/$n/Documents/Scripts/statusbar.sh
+#+end_src
+- If QTile is selected
+ - QTile will be installed by pacman
+ - Its config files wil be copied, creating directories accordingly
+
+#+begin_src bash :tangle Minimal.sh
+    
+    elif [[$option -eq 2]]
+    then
+     sudo pacman -S qtile python-psutil
+     echo "Copying Qtile config files"
+     FILE=/home/$n/.config/qtile/
+     if [ -f "$FILE" ]; then
+	mkdir /home/$n/.config/qtile/backup/
+	mv -r /home/$n/.config/qtile/* /home/$n/.config/qtile/backup/
+	cp -r ./qtile/* /home/$n/.config/qtile/
+     else  
+	mkdir /home/$n/.config/qtile/
+	cp -r ./qtile/* /home/$n/.config/qtile/
+     fi
 
 #+end_src
-** The Xrsources file is based on Manjaro's i3 version, although several changes have been made.
-** For more terminal styles, [[https://terminal.sexy][this]] may be a good resource.
+- If EXWM is selected, Emacs willbe installed with EXWM and some other packages
+ - The configuration fill will be in ".emacs.d" folder in the home directory
 #+begin_src bash :tangle Minimal.sh
+  elif [[$option -eq 3]]
+  then
+      sudo pacman -S emacs gcc
+      mkdir /home/$n/.emacs.d/
+      cp ./Emacs/init.el /home/$n/.emacs.d/
+      echo "Does an xsession file need to be created?"
+      read xse
+      if [[$xse -eq 'y']]
+      then
+	sed -i 's/bharath/$n/' ./Emacs/exwm.desktop
+	mv ./Emacs/exwm.desktop /home/$n/.emacs.d/
+	mv ./Emacs/start-exwm.sh /home/$n/.emacs.d/
+	chmod +x /home/$n/.emacs.d/start-exwm.sh
+        sudo ln -f /home/$n/.emacs.d/exwm.desktop /usr/share/xsessions/exwm.desktop
+      fi
+
+#+end_src
+- If Gnome is selected, you may have to manually choose static workspaces in gnome tweaks and install "Auto Move Windows" extension 
+#+begin_src bash :tangle Minimal.sh
+  elif [[$option -eq 4]]
+  then
+      echo "Should gnome be installed?"
+      read ginstall
+      if [[$ginstall -eq "y"]]
+      then
+	sudo pacman -S gnome
+	echo "The gdm service will now be enabled and started"
+	sudo systemctl enable gdm.service
+	sudo systemctl start gdm.service
+      fi
+      sudo pacman -S dconf-editor gnome-tweaks gnome-shell-extensions
+      echo "The keybinding file will now be loaded"
+      dconf load '/org/gnome/desktop/wm/keybindings/' < './Gnome/wm-keybindings.dconf.bak'
+  fi
+#+end_src
+ The Xrsources file is based on Manjaro's i3 version, although several changes have been made.
+ For more terminal styles, [[https://terminal.sexy][this]] may be a good resource.
+#+begin_src bash :tangle Minimal.sh
+
   echo "Copying .Xresources file"
-  FILE=/home/$n/.Xresources
-  if [ -f "$FILE" ]; then
-      mv /home/$n/.Xresources /home/$n/.Xresources-backup
-      cp ./.Xresources /home/$n/
-  else   
-      cp ./.Xresources /home/$n/
-  fi
+    FILE=/home/$n/.Xresources
+    if [ -f "$FILE" ]; then
+	mv /home/$n/.Xresources /home/$n/.Xresources-backup
+	cp ./.Xresources /home/$n/
+    else   
+	cp ./.Xresources /home/$n/
+    fi
 #+end_src
-** Paru is an AUR helper, like Yay. It is required to install some additional theming
+ Paru is an AUR helper, like Yay. It is required to install some additional theming
 #+begin_src bash :tangle Minimal.sh
 
   echo "Do you want to install paru? (y or n)"
@@ -146,7 +184,7 @@
      makepkg -si
   fi 
 #+end_src
-** Additional themes are installed and can be selected by LXAppearance.
+ Additional themes are installed and can be selected by LXAppearance.
 
 #+begin_src bash :tangle Minimal.sh
   echo "Do you want to install Flat Remix GTK and Paper Icon Theme from the AUR? (y or n)"
@@ -156,4 +194,8 @@
      paru -S flat-remix-gtk paper-icon-theme-git
   fi
   echo "Everything is set to go"
+  if [[$option -eq 3]]
+  then
+  echo "Once you open Emacs, please run M-x all-the-icons-install-fonts during the first run"
+  fi
 #+end_src
