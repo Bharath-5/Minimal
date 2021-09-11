@@ -59,7 +59,7 @@ then
     read xse
     if [[ $xse -eq 'y' ]]
     then
-      sed -i 's/bharath/$n/' ./Emacs/exwm.desktop
+      sed -i "s/bharath/$n/" ./Emacs/exwm.desktop
       mv ./Emacs/exwm.desktop /home/$n/.emacs.d/
       mv ./Emacs/start-exwm.sh /home/$n/.emacs.d/
       chmod +x /home/$n/.emacs.d/start-exwm.sh
