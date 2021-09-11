@@ -17,12 +17,12 @@ read n
 
 echo "Press 1 for DWM, 2 for QTile, 3 for EXWM and 4 for Gnome"
 read option
-if [[$option -lt 4]]
+if [[ $option -lt 4 ]]
 then
   echo "Additional packages will be installed"
   sudo pacman -S alsa-utils brightnessctl celluloid dmenu lxappearance gparted neofetch pulseaudio pcmanfm python-psutil qutebrowser ranger scrot ttf-font-awesome ttf-fira-code scrot rxvt-unicode vimiv w3m wget youtube-dl
 fi
-if [[$option -eq 1]]
+if [[ $option -eq 1 ]]
 then
 
   sudo git clone git://git.suckless.org/dwm /usr/src
@@ -36,7 +36,7 @@ then
   cp ./dwm/statusbar.sh /home/$n/Documents/Scripts/
   chmod +x /home/$n/Documents/Scripts/statusbar.sh
 
-elif [[$option -eq 2]]
+elif [[ $option -eq 2 ]]
 then
  sudo pacman -S qtile python-psutil
  echo "Copying Qtile config files"
@@ -50,14 +50,14 @@ then
     cp -r ./qtile/* /home/$n/.config/qtile/
  fi
 
-elif [[$option -eq 3]]
+elif [[ $option -eq 3 ]]
 then
     sudo pacman -S emacs gcc
     mkdir /home/$n/.emacs.d/
     cp ./Emacs/init.el /home/$n/.emacs.d/
     echo "Does an xsession file need to be created?"
     read xse
-    if [[$xse -eq 'y']]
+    if [[ $xse -eq 'y' ]]
     then
       sed -i 's/bharath/$n/' ./Emacs/exwm.desktop
       mv ./Emacs/exwm.desktop /home/$n/.emacs.d/
@@ -66,11 +66,11 @@ then
       sudo ln -f /home/$n/.emacs.d/exwm.desktop /usr/share/xsessions/exwm.desktop
     fi
 
-elif [[$option -eq 4]]
+elif [[ $option -eq 4 ]]
 then
     echo "Should gnome be installed?"
     read ginstall
-    if [[$ginstall -eq "y"]]
+    if [[ $ginstall -eq "y" ]]
     then
       sudo pacman -S gnome
       echo "The gdm service will now be enabled and started"
@@ -109,7 +109,7 @@ then
    paru -S flat-remix-gtk paper-icon-theme-git
 fi
 echo "Everything is set to go"
-if [[$option -eq 3]]
+if [[ $option -eq 3 ]]
 then
 echo "Once you open Emacs, please run M-x all-the-icons-install-fonts during the first run"
 fi
